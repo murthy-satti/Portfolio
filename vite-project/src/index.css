@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+@keyframes glow {
+  0% {
+    box-shadow: 0px 0px 10px 3px rgb(235, 5, 5);
+  }
+  20% {
+    box-shadow: 0px 0px 10px 3px rgb(0, 255, 255);
+  }
+  40% {
+    box-shadow: 0px 0px 10px 3px rgb(65, 12, 241);
+  }
+  60% {
+    box-shadow: 0px 0px 10px 3px rgb(4, 228, 60);
+  }
+  80% {
+    box-shadow: 0px 0px 10px 3px rgb(255, 255, 50);
+  }
+  100% {
+    box-shadow: 0px 0px 10px 3px rgb(247, 12, 251);
+  }
+}
+
+#redbox {
+  animation-name: glow;
+  animation-duration: 3s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes typing {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+#typingeffect {
+  display: inline-block;
+  white-space: nowrap;
+  animation: typing 3s steps(30, end) infinite;
+}
+
+@media (max-width: 768px) {
+  #typingeffect {
+    white-space: normal;
+    animation: none;
+  }
+}
+
+@keyframes spin-border {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-border {
+  animation: spin-border 4s linear infinite;
+  border-radius: 1rem;
+  padding: 5px;
+  mask-image: linear-gradient(black, black);
+  mask-composite: exclude;
+}
+
