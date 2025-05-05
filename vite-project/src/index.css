@@ -23,7 +23,7 @@
 
 #redbox {
   animation-name: glow;
-  animation-duration: 3s;
+  animation-duration: 10s;
   animation-iteration-count: infinite;
 }
 

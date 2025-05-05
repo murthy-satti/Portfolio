@@ -163,7 +163,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center md:justify-start gap-6 mt-8">
             {/* Hire Me Button */}
             <button
-              className="px-6 py-3 rounded-xl text-lg font-semibold text-white 
+              className="cursor-pointer px-6 py-3 rounded-xl text-lg font-semibold text-white 
         bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-blue-500/30 transition-all duration-300 transform hover:-translate-y-1"
               onClick={() =>
                 (window.location.href = "mailto:murthysatti@gmail.com")
@@ -177,7 +177,7 @@ export default function Home() {
               className="group"
             >
               <button
-                className="px-4 py-3 rounded-xl text-lg font-semibold text-white 
+                className="cursor-pointer px-4 py-3 rounded-xl text-lg font-semibold text-white 
           bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-purple-500/30 
           transition-all duration-300 transform hover:-translate-y-1 w-full flex items-center justify-center gap-2"
           
