@@ -1,5 +1,7 @@
 {
   "projects": {
-    "default": "murthyportfolio-b8352"
-  }
+    "default": "murthy-portfolio"
+  },
+  "targets": {},
+  "etags": {}
 }
