@@ -8,12 +8,9 @@ import {
   FaJs,
   FaGithub,
   FaLinkedin,
-  FaWhatsapp, FaEnvelope, FaBars
+  FaWhatsapp, FaEnvelope, FaBars, FaPhoneAlt
 } from "react-icons/fa";
-import { SiMui } from "react-icons/si";
-import { SiTailwindcss } from "react-icons/si";
-import { FaPhoneAlt } from "react-icons/fa";
-import { SiMongodb, SiPostgresql, SiExpress, SiGit, SiPostman } from "react-icons/si";
+import { SiMui, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql, SiExpress, SiGit, SiPostman } from "react-icons/si";
 
 
 import IMG from './assets/images/image.jpg';
@@ -26,11 +23,6 @@ export default function Home() {
   const skillspageRef = useRef(null);
   const projectspageRef = useRef()
   const contactpageRef = useRef(null);
-
-
-  const toggleNav = () => {
-    setNavVisible(!navVisible);
-  };
 
   const scrollToSection = (ref) => {
     if (ref.current) {
@@ -268,7 +260,7 @@ export default function Home() {
               <div className="absolute inset-0.5 rounded-lg bg-gray-900"></div>
 
               {/* Content */}
-               <div className="relative z-10">
+              <div className="relative z-10">
                 <h2 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500 mb-3">
                   Minor Course (2023-25)
                 </h2>
@@ -287,7 +279,7 @@ export default function Home() {
                   <span className="ml-2 text-white font-semibold">70%</span>
                 </div>
               </div>
-              
+
             </div>
           </div>
 
@@ -298,7 +290,7 @@ export default function Home() {
               <div className="absolute inset-0.5 rounded-lg bg-gray-900"></div>
 
               {/* Content */}
-             <div className="relative z-10">
+              <div className="relative z-10">
                 <h2 className="text-xl md:text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-pink-500 mb-3">
                   Diploma (2019-22)
                 </h2>
@@ -381,14 +373,17 @@ export default function Home() {
                 <FaReact className="text-blue-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">React.js</p>
               </div>
-
+              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+                <SiNextdotjs className="text-white text-4xl mb-3" />
+                <p className="text-sm font-semibold text-white">Next.js</p>
+              </div>
               <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiMui className="text-blue-600 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Material UI</p>
               </div>
             </div>
           </div>
-
+          {/* Backend skills */}
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-white">Back-end</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
@@ -418,6 +413,7 @@ export default function Home() {
               </div>
             </div>
           </div>
+          {/* Other Tools */}
           <div>
             <h3 className="text-2xl font-semibold my-3 text-white">Other Tools </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 ">
@@ -473,8 +469,6 @@ export default function Home() {
                   visionaichatbot.onrender.com
                 </a>
               </p>
-
-
             </div>
           </div>
 
@@ -571,7 +565,7 @@ export default function Home() {
             </div>
 
             <div className="icons text-4xl flex flex-row md:flex-col gap-6 md:gap-8 items-center my-4">
-               <a
+              <a
                 href="tel:+919121723149"
                 target="_blank"
                 rel="noreferrer"
@@ -616,7 +610,7 @@ export default function Home() {
                 <FaGithub className="text-black text-3xl  md:text-4xl hover:text-gray-800" />
 
               </a>
-             
+
             </div>
           </div>
         </div>
