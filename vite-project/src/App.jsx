@@ -166,10 +166,9 @@ export default function Home() {
           </p>
 
           <p className="text-lg text-gray-300 max-w-lg mx-auto md:mx-0 mt-4 leading-relaxed backdrop-blur-sm backdrop-filter p-4 rounded-lg bg-white/5 border-purple-500/30 hover:border-purple-500/70">
-            Aspiring to contribute my skills and expertise in a dynamic company,
-            leveraging my technical knowledge to drive innovation and success
-            while continuously learning and adapting to emerging technologies.
+            Motivated full stack developer with a strong interest in building scalable web applications and delivering high-quality user experiences. Committed to continuous improvement, teamwork, and contributing to the success of forward-thinking organizations through innovative software solutions.
           </p>
+
 
           <div className="flex flex-col md:flex-row justify-center md:justify-start gap-6 mt-8">
             {/* Hire Me Button */}
