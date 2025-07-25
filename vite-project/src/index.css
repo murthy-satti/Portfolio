@@ -1,21 +1,27 @@
 @import "tailwindcss";
 
+/* disco lights animation */
 @keyframes glow {
   0% {
     box-shadow: 0px 0px 10px 3px rgb(235, 5, 5);
   }
+
   20% {
     box-shadow: 0px 0px 10px 3px rgb(0, 255, 255);
   }
+
   40% {
     box-shadow: 0px 0px 10px 3px rgb(65, 12, 241);
   }
+
   60% {
     box-shadow: 0px 0px 10px 3px rgb(4, 228, 60);
   }
+
   80% {
     box-shadow: 0px 0px 10px 3px rgb(255, 255, 50);
   }
+
   100% {
     box-shadow: 0px 0px 10px 3px rgb(247, 12, 251);
   }
@@ -27,32 +33,41 @@
   animation-iteration-count: infinite;
 }
 
+
+/* typing animation */
 @keyframes typing {
   from {
     width: 0;
   }
+
   to {
     width: 100%;
   }
 }
 
-#typingeffect {
-  display: inline-block;
-  white-space: nowrap;
-  animation: typing 3s steps(30, end) infinite;
-}
-
-@media (max-width: 768px) {
-  #typingeffect {
-    white-space: normal;
-    animation: none;
+@keyframes blink {
+  50% {
+    border-color: transparent;
   }
 }
 
+#typingeffect {
+  display: inline-block;
+  overflow: hidden;
+  white-space: nowrap;
+  width: 0;
+  border-right: 2px solid white;
+  /* optional cursor */
+  animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
+  animation-duration: 3s, 3s;
+}
+
+/* image spinning 2 colors */
 @keyframes spin-border {
   0% {
     transform: rotate(0deg);
   }
+
   100% {
     transform: rotate(360deg);
   }
@@ -66,3 +81,16 @@
   mask-composite: exclude;
 }
 
+@keyframes spin-slow {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 4s linear infinite;
+}
