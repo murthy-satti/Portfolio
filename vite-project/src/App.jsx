@@ -204,7 +204,7 @@ export default function Home() {
         {/* Mobile Menu Button */}
         <button
           onClick={() => setNavVisible(!navVisible)}
-          className="md:hidden mr-2 p-2 rounded-full hover:bg-white/10 transition-colors duration-300 focus:outline-none"
+          className="md:hidden  p-2 rounded-full hover:bg-white/10 transition-colors duration-300 focus:outline-none"
           aria-label="Toggle navigation menu"
         >
           <FaBars className="text-2xl cursor-pointer text-white font-bold" />
@@ -262,14 +262,13 @@ export default function Home() {
               </div>
             )}
 
-            <div className="bg-transparent w-64 h-64 md:w-80 md:h-80">
+           
               <img
                 src={IMG || "/placeholder.svg"}
                 alt="Profile"
                 onLoad={() => setLoaded(true)}
-                className="w-64 h-64 md:w-80 md:h-80 rounded-full object-cover shadow-2xl relative z-10"
+                className="w-66 h-66 md:w-80 md:h-80 rounded-full object-cover shadow-2xl relative z-10"
               />
-            </div>
           </div>
         </div>
       </section>
