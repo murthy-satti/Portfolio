@@ -48,7 +48,7 @@ export default function Home() {
     },
     {
       title: "VIDEO STREAM",
-      date: "JuL 2025",
+      date: "Jul 2025",
       description: `••	Developed a full-stack video streaming platform using Next.js and MongoDB with secure user authentication (login/register) and dynamic video metadata management.
 • Implemented server-side rendering (SSR), infinite scroll and a fully responsive UI using Tailwind CSS to ensure fast load times and seamless user experience across all devices.
 • Integrated Cloudinary and HLS.js for adaptive bitrate streaming, optimized video uploads, and interactive modals with category-based filtering.`,
@@ -262,13 +262,13 @@ export default function Home() {
               </div>
             )}
 
-           
-              <img
-                src={IMG || "/placeholder.svg"}
-                alt="Profile"
-                onLoad={() => setLoaded(true)}
-                className="w-66 h-66 md:w-80 md:h-80 rounded-full object-cover shadow-2xl relative z-10"
-              />
+
+            <img
+              src={IMG || "/placeholder.svg"}
+              alt="Profile"
+              onLoad={() => setLoaded(true)}
+              className="w-66 h-66 md:w-80 md:h-80 rounded-full object-cover shadow-2xl relative z-10"
+            />
           </div>
         </div>
       </section>
@@ -292,20 +292,20 @@ export default function Home() {
             </div>
 
             {/* Content area */}
-           <div className="bg-white/5 p-6 sm:p-8 text-gray-300 text-base sm:text-lg leading-relaxed space-y-6 backdrop-blur-md rounded-b-2xl">
-  <p>
-    Hey, I’m <span className="font-bold text-white">Murthy Satti</span> — a passionate and self-motivated <span className="text-blue-400 font-semibold">Full Stack Developer</span> who enjoys solving real-world problems through efficient and scalable web solutions.
-  </p>
-  <p>
-    I recently completed my graduation from <span className="text-white font-semibold">Srinivasa Institute of Engineering and Technology, Cheyyeru</span> with <span className="text-white font-semibold">83%</span>, majoring in Mechanical Engineering and minor in Computer Science Engineering.
-  </p>
-  <p>
-    I gained <span className="text-white font-semibold">3 months of hands-on experience</span> as a <span className="text-blue-400 font-semibold">Junior Full Stack Developer</span> at <span className="text-white font-semibold">Busitron IT Solutions Pvt Ltd</span>, where I contributed to building real-time web applications using the MERN stack.
-  </p>
-  <p>
-    I enjoy building user-friendly, high-performance applications and take pride in writing clean, maintainable code. I'm adaptable, team-oriented and always eager to learn and grow through collaboration.
-  </p>
-</div>
+            <div className="bg-white/5 p-6 sm:p-8 text-gray-300 text-base sm:text-lg leading-relaxed space-y-6 backdrop-blur-md rounded-b-2xl">
+              <p>
+                Hey, I’m <span className="font-bold text-white">Murthy Satti</span> — a passionate and self-motivated <span className="text-blue-400 font-semibold">Full Stack Developer</span> who enjoys solving real-world problems through efficient and scalable web solutions.
+              </p>
+              <p>
+                I recently completed my graduation from <span className="text-white font-semibold">Srinivasa Institute of Engineering and Technology, Cheyyeru</span> with <span className="text-white font-semibold">83%</span>, majoring in Mechanical Engineering and minor in Computer Science Engineering.
+              </p>
+              <p>
+                I gained <span className="text-white font-semibold">3 months of hands-on experience</span> as a <span className="text-blue-400 font-semibold">Junior Full Stack Developer</span> at <span className="text-white font-semibold">Busitron IT Solutions Pvt Ltd</span>, where I contributed to building real-time web applications using the MERN stack.
+              </p>
+              <p>
+                I enjoy building user-friendly, high-performance applications and take pride in writing clean, maintainable code. I'm adaptable, team-oriented and always eager to learn and grow through collaboration.
+              </p>
+            </div>
 
           </div>
         </div>
@@ -325,34 +325,34 @@ export default function Home() {
               Front-end
             </h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaHtml5 className="text-orange-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">HTML5</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaCss3Alt className="text-blue-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">CSS3</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiTailwindcss className="text-sky-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Tailwind CSS</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaJs className="text-yellow-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">JavaScript</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaReact className="text-blue-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">React.js</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiNextdotjs className="text-white text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Next.js</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiMui className="text-blue-600 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Material UI</p>
               </div>
@@ -362,27 +362,27 @@ export default function Home() {
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-white">Back-end</h3>
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiExpress className="text-gray-300 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Express.js</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaNodeJs className="text-green-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Node.js</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaPython className="text-yellow-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Python</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiMongodb className="text-green-600 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">MongoDB</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiPostgresql className="text-blue-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">PostgreSQL</p>
               </div>
@@ -394,15 +394,15 @@ export default function Home() {
             <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 ">
 
 
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiGit className="text-orange-600 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Git / GitHub</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiPostman className="text-red-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Postman</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-gray-900/80 shadow-lg rounded-xl border border-purple-500/30 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiVercel className="text-white text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Vercel</p>
               </div>
@@ -414,7 +414,7 @@ export default function Home() {
       </section>
 
 
-  {/* Projects Section */}
+      {/* Projects Section */}
       <section ref={projectspageRef} className="min-h-screen py-20">
 
         {/* Title */}
@@ -446,8 +446,7 @@ export default function Home() {
               <div className="flex-1"></div>
               <div className="flex items-center space-x-1 sm:space-x-2 text-gray-200 text-xs sm:text-sm">
                 <IoCalendarOutline className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className="hidden xs:inline">{date}</span>
-                <span className="xs:hidden">{date?.split(' ')[0]}</span>
+                <span className=" xs:inline">{date}</span>
               </div>
             </div>
 
@@ -519,23 +518,26 @@ export default function Home() {
                 </div>
 
                 {/* Link */}
-                <div className="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-2 p-3 sm:p-4 bg-gradient-to-r from-gray-800/30 to-gray-700/30 rounded-xl border border-gray-600/30 hover:border-blue-500/50 transition-all duration-300 group">
+                <div className="flex flex-wrap items-center gap-2 p-3 sm:p-4 bg-gradient-to-r from-gray-800/30 to-gray-700/30 rounded-xl border border-gray-600/30 hover:border-blue-500/50 transition-all duration-300 group">
                   <div className="flex items-center space-x-2">
                     <IoCodeSlash className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 group-hover:text-blue-300" />
                     <span className="text-transparent bg-clip-text font-semibold bg-gradient-to-r from-indigo-300 to-teal-300 text-sm sm:text-base">
-                      {linkLabel}:
+                      Live Demo:
                     </span>
                   </div>
+
                   <a
                     href={link}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="flex items-center space-x-1 text-blue-400 hover:text-blue-300 transition-colors duration-200 flex-1 min-w-0"
+                    className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors duration-200 min-w-0"
                   >
                     <span className="truncate text-xs sm:text-sm">{link.replace("https://", "")}</span>
                     <IoOpenOutline className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
                   </a>
                 </div>
+
+
               </div>
             </div>
 
@@ -585,8 +587,8 @@ export default function Home() {
 
         <div className="min-h-screen flex justify-center items-center p-2">
 
-          <div className="mt-10 h-auto py-6 w-full md:w-[65vw] border-2 border-white rounded-2xl bg-gradient-to-tl from-[hsl(0,100%,60%)] via-[hsl(320,95%,60%)] to-[hsl(180,100%,60%)] shadow-lg flex flex-col md:flex-row justify-around items-center gap-4">
-            <div className="w-[90%] md:w-[35vw] h-auto bg-gradient-to-br from-gray-900 to-gray-800 border border-gray-600 rounded-2xl shadow-2xl p-4 relative overflow-hidden">
+          <div className="mt-10 h-auto py-6 w-full md:w-[65vw] border-2 border-white rounded-2xl bg-gradient-to-br from-[hsl(0,100%,60%)] via-[hsl(320,95%,60%)] to-[hsl(180,100%,60%)] shadow-lg flex flex-col md:flex-row justify-around items-center gap-4">
+            <div className="w-[90%] md:w-[35vw] h-auto bg-[#1a1a1a] border border-gray-600 rounded-2xl shadow-2xl p-4 relative overflow-hidden">
               <h2 className="text-xl md:text-2xl font-bold text-white text-center mb-4 relative">
                 Personal Details
               </h2>
@@ -640,53 +642,83 @@ export default function Home() {
             </div>
 
             <div className="icons text-4xl flex flex-row md:flex-col gap-6 md:gap-8 items-center my-4">
-              <a
-                href="tel:+919121723149"
-                target="_blank"
-                rel="noreferrer"
-                className="transform hover:scale-110 transition-transform duration-300"
-              >
-                <FaPhoneAlt className="cursor-pointer text-indigo-700   text-2xl md:text-3xl hover:text-blue-400" />
-              </a>
-              <a
-                href="https://wa.me/9121723149"
-                target="_blank"
-                rel="noreferrer"
-                className="transform hover:scale-110 transition-transform duration-300"
-              >
-                <FaWhatsapp className="cursor-pointer text-green-500 text-3xl md:text-4xl hover:text-green-400" />
+              {/* Call */}
+              <div className="relative group">
+                <a
+                  href="tel:+919121723149"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300"
+                >
+                  <FaPhoneAlt className="cursor-pointer text-indigo-700 text-2xl md:text-3xl hover:text-blue-400" />
+                </a>
+                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  Call
+                </span>
+              </div>
 
-              </a>
-              <a
-                href="mailto:murthysatti@gmail.com"
-                target="_blank"
-                rel="noreferrer"
-                className="transform hover:scale-110 transition-transform duration-300"
-              >
-                <FaEnvelope className="cursor-pointer text-white text-3xl md:text-4xl hover:text-gray-300" />
+          
 
-              </a>
-              <a
-                href="https://www.linkedin.com/in/murthy-satti-309it/"
-                target="_blank"
-                rel="noreferrer"
-                className="transform hover:scale-110 transition-transform duration-300"
-              >
-                <FaLinkedin className="cursor-pointer text-blue-600 text-3xl md:text-4xl hover:text-blue-400" />
+              {/* Email */}
+              <div className="relative group">
+                <a
+                  href="mailto:murthysatti@gmail.com"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300"
+                >
+                  <FaEnvelope className="cursor-pointer text-white text-3xl md:text-4xl hover:text-gray-300" />
+                </a>
+                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  Email
+                </span>
+              </div>
+               {/* WhatsApp */}
+              <div className="relative group">
+                <a
+                  href="https://wa.me/9121723149"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300"
+                >
+                  <FaWhatsapp className="cursor-pointer text-green-500 text-3xl md:text-4xl hover:text-green-400" />
+                </a>
+                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  WhatsApp
+                </span>
+              </div>
 
-              </a>
+              {/* LinkedIn */}
+              <div className="relative group">
+                <a
+                  href="https://www.linkedin.com/in/murthy-satti-309it/"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300"
+                >
+                  <FaLinkedin className="cursor-pointer text-blue-600 text-3xl md:text-4xl hover:text-blue-400" />
+                </a>
+                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  LinkedIn
+                </span>
+              </div>
 
-              <a
-                href="https://github.com/Murthysatti"
-                target="_blank"
-                rel="noreferrer"
-                className="transform hover:scale-110 transition-transform duration-300"
-              >
-                <FaGithub className="text-black text-3xl  md:text-4xl hover:text-gray-800" />
-
-              </a>
-
+              {/* GitHub */}
+              <div className="relative group">
+                <a
+                  href="https://github.com/Murthysatti"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300"
+                >
+                  <FaGithub className="text-black text-3xl md:text-4xl hover:text-gray-800" />
+                </a>
+                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
+                  GitHub
+                </span>
+              </div>
             </div>
+
           </div>
         </div>
       </section>

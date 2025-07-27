@@ -34,20 +34,21 @@
 }
 
 
-/* typing animation */
 @keyframes typing {
   from {
     width: 0;
   }
-
   to {
     width: 100%;
   }
 }
 
 @keyframes blink {
-  50% {
+  0%, 100% {
     border-color: transparent;
+  }
+  50% {
+    border-color: white;
   }
 }
 
@@ -55,12 +56,10 @@
   display: inline-block;
   overflow: hidden;
   white-space: nowrap;
-  width: 0;
-  border-right: 2px solid white;
-  /* optional cursor */
-  animation: typing 3s steps(30, end) forwards, blink 0.7s step-end infinite;
-  animation-duration: 3s, 3s;
+  border-right: 2px solid white; /* typing cursor */
+  animation: typing 3s steps(30, end) forwards, blink 0.75s step-end infinite;
 }
+
 
 /* image spinning 2 colors */
 @keyframes spin-border {
