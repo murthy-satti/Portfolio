@@ -1,4 +1,5 @@
 import { useRef, useEffect, useState } from "react";
+import { Toaster, toast } from "react-hot-toast";
 import {
   FaHtml5,
   FaCss3Alt,
@@ -10,7 +11,7 @@ import {
   FaLinkedin,
   FaWhatsapp, FaEnvelope, FaBars, FaPhoneAlt
 } from "react-icons/fa";
-import { SiMui, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql, SiExpress, SiGit, SiPostman, SiVercel, SiFirebase } from "react-icons/si";
+import { SiMui, SiTailwindcss, SiNextdotjs, SiMongodb, SiPostgresql, SiExpress, SiGit, SiPostman, SiVercel, SiFirebase, SiTypescript } from "react-icons/si";
 import { IoChevronBack, IoChevronForward, IoOpenOutline, IoCodeSlash, IoCalendarOutline, IoPricetagOutline } from 'react-icons/io5';
 
 
@@ -32,6 +33,60 @@ export default function Home() {
 
   const [loaded, setLoaded] = useState(false);
   const [currentProject, setCurrentProject] = useState(0);
+
+  const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    email: "",
+    phone: "",
+    message: "",
+  });
+  const [loading, setLoading] = useState(false);
+
+  // Handle input changes
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  // Handle submit with Web3Forms
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    setLoading(true);
+
+    const formDataToSend = {
+      access_key: "ae9cc876-6259-48b4-af28-cb12ea4740b0",
+      subject: `New Message from Portfolio`,
+      Name: `${formData.firstName} ${formData.lastName}`,
+      Email: formData.email,
+      PhoneNumber: formData.phone,
+      Message: formData.message,
+    };
+
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify(formDataToSend),
+      });
+
+      const data = await res.json();
+
+      if (data.success) {
+        toast.success(" Message sent successfully!", { icon: "✅" });
+        setFormData({ firstName: "", lastName: "", email: "", phone: "", message: "" });
+      } else {
+        toast.error(` Failed: ${data.message || "Something went wrong"}`, { icon: "❌" });
+      }
+    } catch (error) {
+      toast.error(" Error sending message.", { icon: "❌" });
+    } finally {
+      setLoading(false);
+    }
+  };
+
 
   const projects = [
     {
@@ -109,7 +164,7 @@ export default function Home() {
   }, []);
 
   return (
-    <main className="bg-gradient-to-br from-gray-900  to-blue-900 min-h-screen">
+    <main className="bg-gradient-to-br from-gray-900  to-blue-900 ">
       {/* Navigation */}
       <nav className="flex items-center justify-between bg-gradient-to-br from-[#101329] to-gray-900 fixed top-0 w-full backdrop-blur-md z-[1000] h-18 px-6 py-4 border-b border-white/10 shadow-lg">
         {/* Logo with Purple Text Shadow */}
@@ -212,6 +267,36 @@ export default function Home() {
         </button>
       </nav>
 
+      <Toaster
+        position="top-center"
+        toastOptions={{
+          success: {
+            style: {
+              background: "#d1fae5", // Tailwind green-100
+              color: "#065f46",      // Tailwind green-900
+              border: "1px solid #6ee7b7", // Tailwind green-300
+              fontWeight: 500,
+            },
+            iconTheme: {
+              primary: "#10b981", // Tailwind green-500
+              secondary: "#d1fae5",
+            },
+          },
+          error: {
+            style: {
+              background: "#fee2e2", // Tailwind red-100
+              color: "#991b1b",      // Tailwind red-900
+              border: "1px solid #fca5a5", // Tailwind red-300
+              fontWeight: 500,
+            },
+            iconTheme: {
+              primary: "#ef4444", // Tailwind red-500
+              secondary: "#fee2e2",
+            },
+          },
+        }}
+      />
+
       {/* Home Section */}
       <section
         ref={homepageRef}
@@ -274,7 +359,7 @@ export default function Home() {
       </section>
 
       {/* About Section */}
-      <section ref={aboutpageRef} className="min-h-screen py-20 px-2 md:px-4">
+      <section ref={aboutpageRef} className="min-h-screen py-20 px-1 md:px-4">
         <div className="text-4xl flex justify-center pb-6">
           <h1 className="font-bold bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-green-500">
             About
@@ -292,20 +377,29 @@ export default function Home() {
             </div>
 
             {/* Content area */}
-            <div className="bg-white/5 p-6 sm:p-8 text-gray-300 text-base sm:text-lg leading-relaxed space-y-6 backdrop-blur-md rounded-b-2xl">
+            <div className="h-[90vh] md:h-[50vh] lg:h-[60vh] p-6 sm:p-8 text-gray-300 text-base sm:text-lg leading-relaxed space-y-5 backdrop-blur-md rounded-b-2xl">
               <p>
-                Hey, I’m <span className="font-bold text-white">Murthy Satti</span> — a passionate and self-motivated <span className="text-blue-400 font-semibold">Full Stack Developer</span> who enjoys solving real-world problems through efficient and scalable web solutions.
+                Hey, I’m <span className="text-blue-400 font-medium">Murthy Satti</span> - a passionate and self-motivated  <span className="text-blue-400 font-medium"> Full Stack Developer</span>  who enjoys solving real-world problems through efficient and scalable web solutions.
               </p>
+
               <p>
-                I recently completed my graduation from <span className="text-white font-semibold">Srinivasa Institute of Engineering and Technology, Cheyyeru</span> with <span className="text-white font-semibold">83%</span>, majoring in Mechanical Engineering and minor in Computer Science Engineering.
+                I recently graduated fromSrinivasa Institute of Engineering and Technology, Cheyyeru with <span className="text-blue-400 font-medium">8.84 CGPA</span>, major in Mechanical Engineering and minor in Computer Science Engineering.
               </p>
+
               <p>
-                I gained <span className="text-white font-semibold">3 months of hands-on experience</span> as a <span className="text-blue-400 font-semibold">Junior Full Stack Developer</span> at <span className="text-white font-semibold">Busitron IT Solutions Pvt Ltd</span>, where I contributed to building real-time web applications using the MERN stack.
+                I gained 5 months of hands-on experience as a Junior Full Stack Developer at <span className="text-blue-400 font-medium">Busitron IT Solutions Pvt Ltd</span>, contributing to real-time web applications and apps using the MERN stack.
               </p>
+
               <p>
-                I enjoy building user-friendly, high-performance applications and take pride in writing clean, maintainable code. I'm adaptable, team-oriented and always eager to learn and grow through collaboration.
+                I am currently working as a Junior Full Stack Developer at <span className="text-blue-400 font-medium">iVectors Software Solutions LLP</span>, building efficient and scalable web applications with the Next.js and MongoDB.
+              </p>
+
+              <p>
+                I enjoy creating user-friendly, high-performance applications and take pride in writing clean, maintainable code. I'm adaptable, team-oriented, and always eager to learn and grow through collaboration.
               </p>
             </div>
+
+
 
           </div>
         </div>
@@ -319,20 +413,20 @@ export default function Home() {
           </h1>
         </div>
 
-        <div className=" mx-auto px-6">
+        <div className=" mx-auto px-2 md:px-6">
           <div className="mb-3">
             <h3 className="text-2xl font-semibold mb-3 text-white">
               Front-end
             </h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
               <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaHtml5 className="text-orange-500 text-4xl mb-3" />
-                <p className="text-sm font-semibold text-white">HTML5</p>
+                <p className="text-sm font-semibold text-white">HTML</p>
               </div>
 
               <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaCss3Alt className="text-blue-500 text-4xl mb-3" />
-                <p className="text-sm font-semibold text-white">CSS3</p>
+                <p className="text-sm font-semibold text-white">CSS</p>
               </div>
               <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiTailwindcss className="text-sky-400 text-4xl mb-3" />
@@ -342,6 +436,10 @@ export default function Home() {
               <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaJs className="text-yellow-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">JavaScript</p>
+              </div>
+              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+                <SiTypescript className="text-blue-600 text-4xl mb-3 bg-white rounded-xs" />
+                <p className="text-sm font-semibold text-white  ">TypeScript</p>
               </div>
 
               <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
@@ -361,7 +459,7 @@ export default function Home() {
           {/* Backend skills */}
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-white">Back-end</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
               <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiExpress className="text-gray-300 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Express.js</p>
@@ -391,7 +489,7 @@ export default function Home() {
           {/* Other Tools */}
           <div>
             <h3 className="text-2xl font-semibold my-3 text-white">Other Tools and platforms</h3>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-5 ">
+            <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 ">
 
 
               <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
@@ -406,6 +504,8 @@ export default function Home() {
                 <SiVercel className="text-white text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Vercel</p>
               </div>
+
+
 
 
             </div>
@@ -435,7 +535,7 @@ export default function Home() {
           </button>
 
           {/* Project Card */}
-          <div className="w-full max-w-6xl bg-[#0f0f0f] rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/50 overflow-hidden transition-all duration-500 hover:shadow-blue-500/10 hover:shadow-2xl hover:scale-[1.02]">
+          <div className="w-full max-w-7xl  bg-[#1a1a1a] rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/50 overflow-hidden transition-all duration-500 hover:shadow-blue-500/10 hover:shadow-2xl hover:scale-[1.02]">
             {/* Top bar with 3 colored dots */}
             <div className="flex items-center px-3 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-b border-gray-700/50 backdrop-blur-sm">
               <div className="flex items-center space-x-1 sm:space-x-2">
@@ -451,15 +551,16 @@ export default function Home() {
             </div>
 
             {/* Content Container */}
-            <div className="flex flex-col lg:flex-row">
+            <div className="flex flex-col lg:flex-row md:py-10 px-2">
               {/* Project Image */}
-              <div className="w-full lg:w-1/2 relative group p-2 sm:p-5 flex items-center">
+              <div className="w-full lg:w-3/5 relative group p-2 sm:p-5 flex items-center">
                 <img
                   src={image}
                   alt={title}
-                  className="w-full h-48 sm:h-64 lg:h-80 object-fit transition-transform duration-500 rounded-lg"
+                  className="w-full h-48 sm:h-64 lg:h-96 object-fit transition-transform duration-500 rounded-lg"
                 />
               </div>
+
 
               {/* Project Content */}
               <div className="w-full lg:w-1/2 p-4 sm:p-8 lg:p-5 space-y-3 sm:space-y-2 text-white">
@@ -583,145 +684,148 @@ export default function Home() {
       </section>
 
       {/* Contact Section */}
-      <section ref={contactpageRef} className="min-h-screen">
+      <section ref={contactpageRef} className="min-h-screen py-10">
+        <div className="min-h-screen flex justify-center items-center p-1 md:p-5">
 
-        <div className="min-h-screen flex justify-center items-center p-2">
+          {/* Contact Card */}
+          <div className="w-full lg:w-[65vw] h-auto bg-[#1a1a1a] border border-gray-600 rounded-2xl shadow-2xl p-2 md:p-3 lg:p-6 relative overflow-hidden ">
 
-          <div className="mt-10 h-auto py-6 w-full md:w-[65vw] border-2 border-white rounded-2xl bg-gradient-to-br from-[hsl(0,100%,60%)] via-[hsl(320,95%,60%)] to-[hsl(180,100%,60%)] shadow-lg flex flex-col md:flex-row justify-around items-center gap-4">
-            <div className="w-[90%] md:w-[35vw] h-auto bg-[#1a1a1a] border border-gray-600 rounded-2xl shadow-2xl p-4 relative overflow-hidden">
-              <h2 className="text-xl md:text-2xl font-bold text-white text-center mb-4 relative">
-                Personal Details
-              </h2>
+            <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6 ">
+              Contact 
+            </h2>
 
-              <div className="text-white space-y-2 relative z-10">
-                <div className="flex flex-col md:flex-row md:items-center p-1.5 hover:bg-gray-800 rounded-lg transition-colors duration-300">
-                  <span className="font-medium text-purple-300 w-20 text-sm md:text-base">
-                    Name:
-                  </span>
-                  <span className="text-base md:text-lg text-white">
-                    S.S.M.R.K. Murthy
-                  </span>
-                </div>
+            {/* Flex wrapper → Form + Icons */}
+            <div className="flex flex-col md:flex-row justify-between items-center gap-5 my-5">
 
-                <div className="flex flex-col md:flex-row md:items-center p-1.5 hover:bg-gray-800 rounded-lg transition-colors duration-300">
-                  <span className="font-medium text-purple-300 w-20 text-sm md:text-base">
-                    DOB:
-                  </span>
-                  <span className="text-base md:text-lg text-white">
-                    14/06/2004
-                  </span>
-                </div>
+              {/* Contact Form */}
+              <div className="flex-1 w-full md:w-3/4 ">
+                <div className=" rounded-2xl p-2 xl:p-8 border border-gray-700 gradient-shadow md:ml-5">
+                  <div className="mb-8">
+                    <h1 className="text-xl md:text-2xl font-bold text-white mb-2">Get in touch with us</h1>
+                    <p className="text-gray-400 text-sm">
+                      We'd love to hear from you. Send us a message and we'll respond as soon as possible.
+                    </p>
+                  </div>
 
-                <div className="flex flex-col md:flex-row md:items-center p-1.5 hover:bg-gray-800 rounded-lg transition-colors duration-300">
-                  <span className="font-medium text-purple-300 w-20 text-sm md:text-base">
-                    Mobile:
-                  </span>
-                  <span className="text-base md:text-lg text-white">
-                    +91 9121723149
-                  </span>
-                </div>
+                  <form onSubmit={handleSubmit} className="space-y-6">
+                    <div className="grid grid-cols-2 gap-4">
+                      <input
+                        type="text"
+                        name="firstName"
+                        value={formData.firstName}
+                        onChange={handleChange}
+                        placeholder="First Name"
+                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                        required
+                      />
+                      <input
+                        type="text"
+                        name="lastName"
+                        value={formData.lastName}
+                        onChange={handleChange}
+                        placeholder="Last Name"
+                        className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      />
+                    </div>
 
-                <div className="flex flex-col md:flex-row md:items-center p-1.5 hover:bg-gray-800 rounded-lg transition-colors duration-300">
-                  <span className="font-medium text-purple-300 w-20 text-sm md:text-base">
-                    Email:
-                  </span>
-                  <span className="text-base md:text-lg text-white">
-                    murthysatti@gmail.com
-                  </span>
-                </div>
+                    <input
+                      type="email"
+                      name="email"
+                      value={formData.email}
+                      onChange={handleChange}
+                      placeholder="Email Address"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                      required
+                    />
 
-                <div className="flex flex-col md:flex-row md:items-center p-1.5 hover:bg-gray-800 rounded-lg transition-colors duration-300">
-                  <span className="font-medium text-purple-300 w-20 text-sm md:text-base">
-                    Address:
-                  </span>
-                  <span className="text-base md:text-lg text-white">
-                    Amalapuram, Andhra Pradesh
-                  </span>
+                    <input
+                      type="tel"
+                      name="phone"
+                      value={formData.phone}
+                      onChange={handleChange}
+                      placeholder="Phone Number"
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500"
+                    />
+
+                    <textarea
+                      name="message"
+                      value={formData.message}
+                      onChange={handleChange}
+                      placeholder="How can we help you?"
+                      rows={4}
+                      className="w-full bg-gray-700 border border-gray-600 rounded-lg px-4 py-3 text-white placeholder-gray-400 focus:outline-none focus:ring-2 focus:ring-orange-500 resize-none"
+                      required
+                    ></textarea>
+
+                    <button
+                      type="submit"
+                      disabled={loading}
+                      className={`cursor-pointer w-full font-semibold py-3 px-6 rounded-lg transition-colors duration-200 
+                  ${loading
+                          ? "bg-gray-500 text-gray-300 cursor-not-allowed"
+                          : "bg-white text-gray-900 hover:bg-gray-100"
+                        }`}
+                    >
+                      {loading ? "Sending..." : "Send Message"}
+                    </button>
+                  </form>
                 </div>
               </div>
-            </div>
 
-            <div className="icons text-4xl flex flex-row md:flex-col gap-6 md:gap-8 items-center my-4">
-              {/* Call */}
-              <div className="relative group">
-                <a
-                  href="tel:+919121723149"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transform hover:scale-110 transition-transform duration-300"
-                >
-                  <FaPhoneAlt className="cursor-pointer text-indigo-700 text-2xl md:text-3xl hover:text-blue-400" />
+              {/* Contact Icons */}
+              <div className="w-1/4 flex flex-row md:flex-col gap-6 md:gap-8 items-center justify-center mb-5">
+                {/* Call */}
+                <a href="tel:+919121723149" target="_blank" rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300 relative group">
+                  <FaPhoneAlt className="cursor-pointer text-indigo-700 text-3xl md:text-4xl hover:text-blue-400" />
+                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Call
+                  </span>
                 </a>
-                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  Call
-                </span>
-              </div>
 
-          
-
-              {/* Email */}
-              <div className="relative group">
-                <a
-                  href="mailto:murthysatti@gmail.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transform hover:scale-110 transition-transform duration-300"
-                >
+                {/* Email */}
+                <a href="mailto:murthysatti@gmail.com" target="_blank" rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300 relative group">
                   <FaEnvelope className="cursor-pointer text-white text-3xl md:text-4xl hover:text-gray-300" />
+                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    Email
+                  </span>
                 </a>
-                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  Email
-                </span>
-              </div>
-               {/* WhatsApp */}
-              <div className="relative group">
-                <a
-                  href="https://wa.me/9121723149"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transform hover:scale-110 transition-transform duration-300"
-                >
+
+                {/* WhatsApp */}
+                <a href="https://wa.me/9121723149" target="_blank" rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300 relative group">
                   <FaWhatsapp className="cursor-pointer text-green-500 text-3xl md:text-4xl hover:text-green-400" />
+                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    WhatsApp
+                  </span>
                 </a>
-                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  WhatsApp
-                </span>
-              </div>
 
-              {/* LinkedIn */}
-              <div className="relative group">
-                <a
-                  href="https://www.linkedin.com/in/murthy-satti-309it/"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transform hover:scale-110 transition-transform duration-300"
-                >
+                {/* LinkedIn */}
+                <a href="https://www.linkedin.com/in/murthy-satti-309it/" target="_blank" rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300 relative group">
                   <FaLinkedin className="cursor-pointer text-blue-600 text-3xl md:text-4xl hover:text-blue-400" />
+                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    LinkedIn
+                  </span>
                 </a>
-                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  LinkedIn
-                </span>
+
+                {/* GitHub */}
+                <a href="https://github.com/Murthysatti" target="_blank" rel="noreferrer"
+                  className="transform hover:scale-110 transition-transform duration-300 relative group">
+                  <FaGithub className="text-white text-3xl md:text-4xl hover:text-gray-800" />
+                  <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    GitHub
+                  </span>
+                </a>
               </div>
 
-              {/* GitHub */}
-              <div className="relative group">
-                <a
-                  href="https://github.com/Murthysatti"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="transform hover:scale-110 transition-transform duration-300"
-                >
-                  <FaGithub className="text-black text-3xl md:text-4xl hover:text-gray-800" />
-                </a>
-                <span className="absolute -top-7 left-1/2 -translate-x-1/2 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap">
-                  GitHub
-                </span>
-              </div>
             </div>
-
           </div>
         </div>
       </section>
+
+
     </main>
   );
 }

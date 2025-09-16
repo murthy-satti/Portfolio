@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+body {
+  font-family: Inter, sans-serif;
+}
+
 /* scrollbar hiding */
 /* For WebKit browsers (Chrome, Safari) */
 ::-webkit-scrollbar {
@@ -109,4 +113,55 @@
 
 .animate-spin-slow {
   animation: spin-slow 4s linear infinite;
+}
+
+
+/* new contact animation  */
+
+
+@property --a {
+    syntax: '<angle>';
+    initial-value: 0deg;
+    inherits: false;
+}
+
+
+
+.gradient-shadow {
+  position: relative;
+  filter: url(#glow);
+}
+
+.gradient-shadow::before {
+  content: '';
+  position: absolute;
+  inset: 2px;
+  background: #333333;
+  border-radius: inherit;
+  z-index: 1;
+}
+
+.gradient-shadow::after {
+  content: '';
+  position: absolute;
+  inset: -5px;
+  background: 
+    repeating-conic-gradient(from var(--a, 0deg), 
+           rgba(255, 0, 70, 0.5) 0% 25%, 
+            transparent 25% 50%, 
+           rgba(0, 180, 255, 0.5) 50% 75%,
+            transparent 75% 100%);
+  border-radius: inherit;
+  z-index: -1;
+  filter: blur(15px);
+  animation: rotateGradient 4s linear infinite;
+}
+
+.gradient-shadow > * {
+  position: relative;
+  z-index: 2;
+}
+
+@keyframes rotateGradient { 
+  to { --a: 360deg; } 
 }
