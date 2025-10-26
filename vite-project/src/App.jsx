@@ -18,9 +18,9 @@ import { IoChevronBack, IoChevronForward, IoOpenOutline, IoCodeSlash, IoCalendar
 
 import IMG from './assets/images/image.jpg';
 import vision from './assets/images/vision.png';
-import promptmail from './assets/images/promptmail.png';
+import promptmail from './assets/images/prompt.png';
 import weather from './assets/images/weather.png';
-import stream from './assets/images/stream.png';
+import stream from './assets/images/videostream.png';
 import RESUME from './assets/images/resume.pdf'
 
 export default function Home() {
@@ -92,10 +92,10 @@ export default function Home() {
     {
       title: "PROMPT MAIL",
       date: "Jul 2025",
-      description: `• Built a secure AI email platform using Next.js, Google OAuth 2.0, Gemini API, and Nodemailer enabling users to generate and send emails via their own Gmail accounts.
-• Implemented Google Sign-In, session handling, theme toggle support, and user profile updates to enable personalized email generation.
-• Designed and implemented a mobile-friendly, accessible interface using Tailwind CSS with server-side rendering (SSR) in Next.js for improved SEO and performance.`,
-
+      description: `• Developed PromptMail, a secure AI-powered email platform using Next.js  enabling users to generate and send personalized emails via their Gmail accounts.  
+• Integrated template-based email generation, Google Sign-In, single-user OAuth, session handling, file attachments, theme toggle (dark/light), and user data collection for tailored email content.  
+• Built a responsive, accessible interface with Tailwind CSS and server-side rendering (SSR) in Next.js for optimized performance, SEO, and smooth mobile/desktop experiences.`
+      ,
       tags: "#Next.js #Tailwind CSS #MongoDB #GeminiAPI #OAuth 2.0",
       link: "https://promptmail.vercel.app",
       linkLabel: "Live Demo",
@@ -104,9 +104,9 @@ export default function Home() {
     {
       title: "VIDEO STREAM",
       date: "Jul 2025",
-      description: `••	Developed a full-stack video streaming platform using Next.js and MongoDB with secure user authentication (login/register) and dynamic video metadata management.
-• Implemented server-side rendering (SSR), infinite scroll and a fully responsive UI using Tailwind CSS to ensure fast load times and seamless user experience across all devices.
-• Integrated Cloudinary and HLS.js for adaptive bitrate streaming, optimized video uploads, and interactive modals with category-based filtering.`,
+      description: `• Developed a full-stack video streaming platform using Next.js and MongoDB with secure user authentication and dynamic video metadata management.  
+• Implemented SSR, infinite scroll, and a fully responsive UI with Tailwind CSS for fast load times and seamless experience across devices.  
+• Integrated Cloudinary and HLS.js for adaptive bitrate streaming, optimized uploads, and interactive category-based video filtering.`,
       tags: " #Next.js #MongoDB #Tailwind CSS #Cloudinary #HLS.js",
       link: "https://stream-videos.vercel.app",
       linkLabel: "Live Demo",
@@ -127,7 +127,7 @@ export default function Home() {
     {
       title: "WEATHER APPLICATION",
       date: "Nov 2024",
-      description: `• Developed a desktop weather application using Python and PyQt5 that fetches real-time weather data from the OpenWeatherMap API.
+      description: `• Developed a desktop weather application using Python and PyQt5 that fetches real-time weather da different placesta for from the OpenWeatherMap API.
 • Included dynamic UI updates, location-based weather lookup, and error handling for smooth user experience.
 • Packaged the application for cross-platform use with a clean GUI and responsive layout for better readability.`,
 
@@ -163,10 +163,21 @@ export default function Home() {
     }
   }, []);
 
+  // Inside your component
+  const handleScrollControl = (e, action) => {
+    const scrollContainer = e.currentTarget;
+    if (action === "pause") {
+      scrollContainer.style.animationPlayState = "paused";
+    } else if (action === "resume") {
+      scrollContainer.style.animationPlayState = "running";
+    }
+  };
+
+
   return (
-    <main className="bg-gradient-to-br from-gray-900  to-blue-900 ">
+    <main className="bg-gradient-to-br from-slate-800 via-gray-800  to-blue-950 ">
       {/* Navigation */}
-      <nav className="flex items-center justify-between bg-gradient-to-br from-[#101329] to-gray-900 fixed top-0 w-full backdrop-blur-md z-[1000] h-18 px-6 py-4 border-b border-white/10 shadow-lg">
+      <header className="flex items-center justify-between bg-gradient-to-br from-[#181818] to-gray-900 fixed top-0 w-full backdrop-blur-md z-[1000] h-18 px-6 py-4 border-b border-white/10 shadow-lg">
         {/* Logo with Purple Text Shadow */}
         <div className="flex items-center">
           <h4
@@ -265,7 +276,7 @@ export default function Home() {
           <FaBars className="text-2xl cursor-pointer text-white font-bold" />
 
         </button>
-      </nav>
+      </header>
 
       <Toaster
         position="top-center"
@@ -319,7 +330,7 @@ export default function Home() {
           <div className="flex flex-col md:flex-row justify-center md:justify-start gap-4 md:gap-6 mt-4 md:mt-8">
             <button
               className="cursor-pointer px-6 py-3 rounded-xl text-lg font-semibold text-white 
-          bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-blue-500/30 
+          bg-gradient-to-r from-blue-500 to-cyan-600 hover:shadow-lg hover:shadow-blue-500/30 
           transition-all duration-300 transform hover:-translate-y-1"
               onClick={() => (window.location.href = "mailto:murthysatti@gmail.com")}
             >
@@ -329,7 +340,7 @@ export default function Home() {
             <a href={RESUME} download className="group">
               <button
                 className="cursor-pointer px-4 py-3 rounded-xl text-lg font-semibold text-white 
-            bg-gradient-to-r from-blue-500 to-purple-500 hover:shadow-lg hover:shadow-purple-500/30 
+            bg-gradient-to-r from-blue-500 to-cyan-600 hover:shadow-lg hover:shadow-purple-500/30 
             transition-all duration-300 transform hover:-translate-y-1 w-full flex items-center justify-center gap-2"
               >
                 <span>Download Resume</span>
@@ -367,9 +378,9 @@ export default function Home() {
         </div>
 
         <div className="flex justify-center text-white">
-          <div className="w-full max-w-4xl bg-[#0f0f0f] rounded-2xl shadow-2xl border border-gray-700 overflow-hidden">
+          <div className="w-full max-w-4xl bg-[#232323] rounded-2xl shadow-2xl border border-gray-700 overflow-hidden">
             {/* Top bar with 3 colored dots */}
-            <div className="flex items-center px-4 py-3 bg-[#1a1a1a] border-b-[1.5px] border-gray-300 sm:border-gray-300
+            <div className="flex items-center px-4 py-3 bg-[#181818] border-b-[1.5px] border-gray-300 sm:border-gray-300
 ">
               <span className="w-3 h-3 bg-red-500 rounded-full mr-2"></span>
               <span className="w-3 h-3 bg-yellow-500 rounded-full mr-2"></span>
@@ -419,38 +430,38 @@ export default function Home() {
               Front-end
             </h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaHtml5 className="text-orange-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">HTML</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaCss3Alt className="text-blue-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">CSS</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiTailwindcss className="text-sky-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Tailwind CSS</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaJs className="text-yellow-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">JavaScript</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiTypescript className="text-blue-600 text-4xl mb-3 bg-white rounded-xs" />
                 <p className="text-sm font-semibold text-white  ">TypeScript</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaReact className="text-blue-400 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">React.js</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiNextdotjs className="text-white text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Next.js</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiMui className="text-blue-600 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Material UI</p>
               </div>
@@ -460,27 +471,27 @@ export default function Home() {
           <div>
             <h3 className="text-2xl font-semibold mb-3 text-white">Back-end</h3>
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiExpress className="text-gray-300 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Express.js</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaNodeJs className="text-green-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Node.js</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <FaPython className="text-yellow-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Python</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiMongodb className="text-green-600 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">MongoDB</p>
               </div>
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiPostgresql className="text-blue-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">PostgreSQL</p>
               </div>
@@ -492,15 +503,15 @@ export default function Home() {
             <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 ">
 
 
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiGit className="text-orange-600 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Git / GitHub</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiPostman className="text-red-500 text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Postman</p>
               </div>
-              <div className="flex flex-col items-center p-4 bg-[#1a1a1a] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
+              <div className="flex flex-col items-center p-4 bg-[#232323] shadow-lg rounded-xl border border-gray-500 hover:border-purple-500/70 transition-all duration-300 hover:transform hover:scale-105">
                 <SiVercel className="text-white text-4xl mb-3" />
                 <p className="text-sm font-semibold text-white">Vercel</p>
               </div>
@@ -513,7 +524,6 @@ export default function Home() {
         </div>
       </section>
 
-
       {/* Projects Section */}
       <section ref={projectspageRef} className="min-h-screen py-20">
 
@@ -524,174 +534,106 @@ export default function Home() {
           </h1>
         </div>
 
-        {/* Project Navigation */}
-        <div className="relative z-10 flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-6 px-1 sm:px-4">
-          {/* Previous Button */}
-          <button
-            onClick={prevProject}
-            className="hidden md:block group p-2 sm:p-3 rounded-full bg-black border border-white transition-all duration-300 hover:scale-110 flex-shrink-0"
-          >
-            <IoChevronBack className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-          </button>
+        {/* Infinite Sliding Projects */}
+        <div className="overflow-hidden relative w-full">
+          <div className="overflow-x-auto scroll-smooth scrollbar-hide w-full">
+            <div className="flex animate-scroll gap-2 md:gap-4 xl:gap-6 w-max"
+              onMouseDown={(e) => handleScrollControl(e, "pause")}
+              onMouseUp={(e) => handleScrollControl(e, "resume")}
+              onMouseLeave={(e) => handleScrollControl(e, "resume")}
+              onTouchStart={(e) => handleScrollControl(e, "pause")}
+              onTouchEnd={(e) => handleScrollControl(e, "resume")}>
+              {[...projects, ...projects].map((project, index) => (
+                <div key={index} className="flex-shrink-0 w-[98vw] md:w-[70vw] lg:w-[40vw] ">
+                  {/* Project Card */}
+                  <div className="bg-gradient-to-br from-[#2a2a2a] to-[#1a1a1a] rounded-2xl shadow-2xl border border-gray-700/30 overflow-hidden transition-all duration-500 hover:shadow-blue-500/20  hover:border-blue-500/30">
 
-          {/* Project Card */}
-          <div className="w-full max-w-7xl  bg-[#1a1a1a] rounded-2xl sm:rounded-3xl shadow-2xl border border-gray-700/50 overflow-hidden transition-all duration-500 hover:shadow-blue-500/10 hover:shadow-2xl hover:scale-[1.02]">
-            {/* Top bar with 3 colored dots */}
-            <div className="flex items-center px-3 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-gray-800/80 to-gray-900/80 border-b border-gray-700/50 backdrop-blur-sm">
-              <div className="flex items-center space-x-1 sm:space-x-2">
-                <span className="w-2 h-2 sm:w-3 sm:h-3 bg-red-500 rounded-full mr-1 sm:mr-2"></span>
-                <span className="w-2 h-2 sm:w-3 sm:h-3 bg-yellow-500 rounded-full mr-1 sm:mr-2"></span>
-                <span className="w-2 h-2 sm:w-3 sm:h-3 bg-green-500 rounded-full"></span>
-              </div>
-              <div className="flex-1"></div>
-              <div className="flex items-center space-x-1 sm:space-x-2 text-gray-200 text-xs sm:text-sm">
-                <IoCalendarOutline className="w-3 h-3 sm:w-4 sm:h-4" />
-                <span className=" xs:inline">{date}</span>
-              </div>
-            </div>
-
-            {/* Content Container */}
-            <div className="flex flex-col lg:flex-row md:py-10 px-2">
-              {/* Project Image */}
-              <div className="w-full lg:w-3/5 relative group p-2 sm:p-5 flex items-center">
-                <img
-                  src={image}
-                  alt={title}
-                  className="w-full h-48 sm:h-64 lg:h-96 object-fit transition-transform duration-500 rounded-lg"
-                />
-              </div>
-
-
-              {/* Project Content */}
-              <div className="w-full lg:w-1/2 p-4 sm:p-8 lg:p-5 space-y-3 sm:space-y-2 text-white">
-                {/* Title */}
-                <div className="space-y-2">
-                  <h2 className="text-xl sm:text-2xl lg:text-3xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 via-pink-400 to-cyan-400 leading-tight">
-                    {title}
-                  </h2>
-                </div>
-
-                {/* Description with collapsible details */}
-                <details className="group text-sm lg:text-base font-normal text-gray-300 rounded-lg">
-                  <summary className="cursor-pointer list-none hover:text-white transition-colors duration-200">
-                    <ul className="list-none space-y-2">
-                      {description
-                        .split("•")
-                        .filter(Boolean)
-                        .slice(0, 2)
-                        .map((line, index) => (
-                          <li key={index} className={`flex items-start space-x-2 flex`}>
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-xs sm:text-sm lg:text-base">{line.trim()}</span>
-                          </li>
-                        ))}
-                    </ul>
-
-                    <div className="mt-3 flex items-center space-x-2 text-xs text-blue-400 hover:text-blue-300 transition-colors duration-200">
-                      <span className="group-open:hidden">Show more details</span>
-                      <span className="hidden group-open:inline">Show less</span>
-                      <IoChevronForward className="w-3 h-3 group-open:rotate-90 transition-transform duration-200" />
+                    {/* Header */}
+                    <div className="flex items-center justify-between px-5 py-3 bg-gradient-to-r from-gray-800/60 to-gray-900/60 border-b border-gray-700/40 backdrop-blur-sm">
+                      <h2 className="text-base xl:text-lg font-bold text-white tracking-tight truncate">
+                        {project.title}
+                      </h2>
+                      <div className="flex items-center space-x-2 text-gray-200 text-xs sm:text-sm  px-2 py-1 rounded-lg">
+                        <IoCalendarOutline className="w-3 h-3 sm:w-4 sm:h-4" />
+                        <span className="font-medium">{project.date}</span>
+                      </div>
                     </div>
-                  </summary>
 
-                  <div className="mt-4 max-h-24 sm:max-h-32 overflow-y-auto pr-2 custom-scrollbar">
-                    <ul className="list-none space-y-2 text-gray-200">
-                      {description
-                        .split("•")
-                        .filter(Boolean)
-                        .slice(2)
-                        .map((line, index) => (
-                          <li key={index} className="flex items-start space-x-2">
-                            <div className="w-1.5 h-1.5 sm:w-2 sm:h-2 bg-gradient-to-r from-green-400 to-blue-400 rounded-full mt-2 flex-shrink-0"></div>
-                            <span className="text-xs sm:text-sm lg:text-base">{line.trim()}</span>
-                          </li>
-                        ))}
-                    </ul>
+                    {/* Image */}
+                    <div className="p-4">
+                      <div className="relative overflow-hidden rounded-xl group">
+                        <img
+                          src={project.image}
+                          alt={project.title}
+                          className="w-full h-48 sm:h-60 md:h-64 lg:h-72 object-cover transition-transform duration-700 group-hover:scale-103"
+                        />
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                      </div>
+                    </div>
+
+                    {/* Content */}
+                    <div className="px-3 xl:px-5 py-3 space-y-4 text-white">
+                      {/* Description */}
+                      <details className="group">
+                        <summary className="cursor-pointer text-base text-gray-200 leading-relaxed  transition-colors list-none">
+                          <div className="space-y-1">
+                            {project.description.split("•").slice(0, 2).map((line, i) => (
+                              <p key={i} className="leading-relaxed">{line.trim()}</p>
+                            ))}
+                          </div>
+                          <span className="text-blue-400 text-xs mt-2 inline-block group-open:hidden">Read more →</span>
+                        </summary>
+                        <div className="mt-3 text-sm text-gray-200 space-y-1 leading-relaxed border-t border-gray-700/50 pt-3">
+                          {project.description.split("•").slice(2).map((line, i) => (
+                            <p key={i}>{line.trim()}</p>
+                          ))}
+                        </div>
+                      </details>
+
+                      <div className="flex flex-col md:flex-row gap-2  justify-between">
+
+                        {/* Tags */}
+                        <div className="flex flex-wrap gap-2">
+                          {project.tags.split(',').map((tag, i) => (
+                            <span key={i} className="text-xs md:text-sm font-medium text-emerald-400 bg-emerald-400/10 px-3 py-2 rounded-xl border border-emerald-400/20 ">
+                              {tag.trim()}
+                            </span>
+                          ))}
+                        </div>
+
+                        {/* Link */}
+                        <a
+                          href={project.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="w-fit inline-flex items-center gap-2 px-4 py-2 bg-gradient-to-r from-blue-500 to-cyan-600  text-white font-medium rounded-lg transition-all duration-300 hover:shadow-lg hover:shadow-blue-500/30 text-sm"
+                        >
+                          <IoCodeSlash className="w-4 h-4" /> Live Demo
+                        </a>
+                      </div>
+
+                    </div>
                   </div>
-                </details>
-
-                {/* Tags */}
-                <div className="flex items-center space-x-2">
-                  <IoPricetagOutline className="w-3 h-3 sm:w-4 sm:h-4 text-green-400" />
-                  <p className="text-xs sm:text-sm lg:text-base font-medium text-transparent bg-clip-text bg-gradient-to-r from-green-400 via-yellow-400 to-green-400">
-                    {tags}
-                  </p>
                 </div>
-
-                {/* Link */}
-                <div className="flex flex-wrap items-center gap-2 p-3 sm:p-4 bg-gradient-to-r from-gray-800/30 to-gray-700/30 rounded-xl border border-gray-600/30 hover:border-blue-500/50 transition-all duration-300 group">
-                  <div className="flex items-center space-x-2">
-                    <IoCodeSlash className="w-4 h-4 sm:w-5 sm:h-5 text-blue-400 group-hover:text-blue-300" />
-                    <span className="text-transparent bg-clip-text font-semibold bg-gradient-to-r from-indigo-300 to-teal-300 text-sm sm:text-base">
-                      Live Demo:
-                    </span>
-                  </div>
-
-                  <a
-                    href={link}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-1 text-blue-400 hover:text-blue-300 transition-colors duration-200 min-w-0"
-                  >
-                    <span className="truncate text-xs sm:text-sm">{link.replace("https://", "")}</span>
-                    <IoOpenOutline className="w-3 h-3 sm:w-4 sm:h-4 flex-shrink-0" />
-                  </a>
-                </div>
-
-
-              </div>
-            </div>
-
-            {/* Project indicators */}
-            <div className="flex justify-center space-x-1.5 sm:space-x-2 py-3 sm:py-4 bg-gradient-to-r from-gray-800/50 to-gray-900/50">
-              {projects.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setCurrentProject(index)}
-                  className={`w-1.5 h-1.5 sm:w-2 sm:h-2 rounded-full transition-all duration-300 ${index === currentProject
-                    ? 'bg-gradient-to-r from-blue-400 to-purple-400 scale-125'
-                    : 'bg-gray-600 hover:bg-gray-500'
-                    }`}
-                />
               ))}
             </div>
           </div>
-
-          {/* Next Button */}
-          <button
-            onClick={nextProject}
-            className="hidden md:block group p-2 sm:p-3 rounded-full bg-black border border-white transition-all duration-300 hover:scale-110 flex-shrink-0"
-          >
-            <IoChevronForward className="w-4 h-4 sm:w-6 sm:h-6 text-white" />
-          </button>
         </div>
-        {/* Mobile Nav Buttons */}
-        <div className="flex sm:hidden justify-center items-center gap-4 mt-4">
-          <button
-            onClick={prevProject}
-            className="group p-2 rounded-full bg-black border border-white hover:scale-110 transition"
-          >
-            <IoChevronBack className="w-4 h-4 text-white" />
-          </button>
-          <button
-            onClick={nextProject}
-            className="group p-2 rounded-full bg-black border border-white hover:scale-110 transition"
-          >
-            <IoChevronForward className="w-4 h-4 text-white" />
-          </button>
-        </div>
-
       </section>
+
+
+
+
 
       {/* Contact Section */}
       <section ref={contactpageRef} className="min-h-screen py-10">
         <div className="min-h-screen flex justify-center items-center p-1 md:p-5">
 
           {/* Contact Card */}
-          <div className="w-full lg:w-[65vw] h-auto bg-[#1a1a1a] border border-gray-600 rounded-2xl shadow-2xl p-2 md:p-3 lg:p-6 relative overflow-hidden ">
+          <div className="w-full lg:w-[65vw] h-auto bg-[#151515] border border-gray-600 rounded-2xl shadow-2xl p-2 md:p-3 lg:p-6 relative overflow-hidden ">
 
             <h2 className="text-2xl md:text-3xl font-bold text-white text-center mb-6 ">
-              Contact 
+              Contact
             </h2>
 
             {/* Flex wrapper → Form + Icons */}
@@ -824,6 +766,11 @@ export default function Home() {
           </div>
         </div>
       </section>
+
+      {/* footer */}
+      <footer class="bg-gradient-to-br from-gray-900 to-slate-800 w-full py-8 text-center   text-gray-300 ">
+        © 2025 Murthy. All rights reserved.
+      </footer>
 
 
     </main>

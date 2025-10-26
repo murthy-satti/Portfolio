@@ -83,6 +83,7 @@ body {
 
 
 /* image spinning 2 colors */
+
 @keyframes spin-border {
   0% {
     transform: rotate(0deg);
@@ -164,4 +165,16 @@ body {
 
 @keyframes rotateGradient { 
   to { --a: 360deg; } 
+}
+
+
+/* projects scrolling  */
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 50s linear infinite;
 }
