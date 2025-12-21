@@ -179,7 +179,14 @@ export default function Home() {
       {/* Navigation */}
       <header className="flex items-center justify-between bg-gradient-to-br from-[#181818] to-gray-900 fixed top-0 w-full backdrop-blur-md z-[1000] h-18 px-6 py-4 border-b border-white/10 shadow-lg">
         {/* Logo with Purple Text Shadow */}
-        <div className="flex items-center">
+        <div className="flex items-center gap-2 ">
+<img
+  src="/img.png"
+  alt="Logo"
+  className="h-12  w-12 font-bold rounded-full object-cover"
+/>
+
+
           <h4
             className="text-white font-bold text-2xl 
       [text-shadow:0px_0px_8px_rgb(231,5,235)] tracking-wide"
@@ -769,7 +776,7 @@ export default function Home() {
 
       {/* footer */}
       <footer class="bg-gradient-to-br from-gray-900 to-slate-800 w-full py-8 text-center   text-gray-300 ">
-        © 2025 Murthy. All rights reserved.
+        © 2025 Murthy Satti. All rights reserved.
       </footer>
 
 
